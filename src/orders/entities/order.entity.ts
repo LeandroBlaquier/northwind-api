@@ -37,4 +37,10 @@ export class Order {
 
   @Column()
   ShipCountry: string;
+
+  @Column()
+  CustomerID: number;
+
+  @Column()
+  EmployeeID: number;
 }
