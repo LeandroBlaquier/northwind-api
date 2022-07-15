@@ -11,8 +11,6 @@ import { CategoriesModule } from './categories/categories.module';
 
 @Module({
   imports: [
-    ProductsModule,
-    OrdersModule,
     TypeOrmModule.forRoot({
       type: 'mysql',
       host: 'localhost',
@@ -24,6 +22,8 @@ import { CategoriesModule } from './categories/categories.module';
       autoLoadEntities: true,
       synchronize: true,
     }),
+    ProductsModule,
+    OrdersModule,
     CustomersModule,
     ShippersModule,
     OrderDetailsModule,
