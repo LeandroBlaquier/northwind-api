@@ -11,6 +11,6 @@ export class Category {
   @Column()
   Description: string;
 
-  @Column('image')
+  @Column()
   Picture: string;
 }
