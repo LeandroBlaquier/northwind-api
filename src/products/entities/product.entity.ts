@@ -1,10 +1,12 @@
-<<<<<<< HEAD
 import { Category } from 'src/categories/entities/category.entity';
-import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
-=======
+import {
+  Column,
+  Entity,
+  ManyToOne,
+  OneToMany,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
 import { suppliers } from 'src/suppliers/entities/suppliers.entity';
-import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
->>>>>>> relations1
 
 @Entity()
 export class Product {
@@ -38,11 +40,9 @@ export class Product {
   @Column()
   discontinuedt: number;
 
-<<<<<<< HEAD
   @OneToMany(() => Category, (category) => category.product)
   categories: Category[];
-=======
+
   @ManyToOne(() => suppliers, (suppliers) => suppliers.products)
   product: Product;
->>>>>>> relations1
 }
