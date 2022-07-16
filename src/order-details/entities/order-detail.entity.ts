@@ -5,7 +5,7 @@ export class OrderDetails {
   @PrimaryGeneratedColumn() //los id se hacen de esta forma para que se autogeneren las id
   id: number;
 
-  @Column({ type: 'money' })
+  @Column()
   UnitPrice: number;
 
   @Column('smallint')

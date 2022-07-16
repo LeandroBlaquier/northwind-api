@@ -9,11 +9,10 @@ import { ShippersModule } from './shippers/shippers.module';
 import { OrderDetailsModule } from './order-details/order-details.module';
 import { CategoriesModule } from './categories/categories.module';
 import { EmployeesModule } from './employees/employees.module';
+import { SuppliersModule } from './suppliers/suppliers.module';
 
 @Module({
   imports: [
-    ProductsModule,
-    OrdersModule,
     TypeOrmModule.forRoot({
       type: 'mysql',
       host: 'localhost',
@@ -25,11 +24,14 @@ import { EmployeesModule } from './employees/employees.module';
       autoLoadEntities: true,
       synchronize: true,
     }),
+    ProductsModule,
+    OrdersModule,
     CustomersModule,
     ShippersModule,
     OrderDetailsModule,
     CategoriesModule,
     EmployeesModule,
+    SuppliersModule,
   ],
   controllers: [AppController],
   providers: [AppService],

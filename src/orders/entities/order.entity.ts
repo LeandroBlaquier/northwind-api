@@ -17,7 +17,7 @@ export class Order {
   @Column({ type: 'int' })
   ShipVia: number;
 
-  @Column({ type: 'money' })
+  @Column()
   Freight: number;
 
   @Column('varchar', { length: 40 })
