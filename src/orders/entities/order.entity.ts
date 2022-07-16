@@ -1,4 +1,11 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Shipper } from 'src/shippers/entities/shippers.entity';
+import {
+  Column,
+  Entity,
+  JoinColumn,
+  OneToOne,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
 
 @Entity()
 export class Order {
@@ -43,4 +50,8 @@ export class Order {
 
   @Column({ type: 'int' })
   EmployeeID: number;
+
+  @OneToOne(() => Shipper)
+  @JoinColumn()
+  shipper: Shipper;
 }
