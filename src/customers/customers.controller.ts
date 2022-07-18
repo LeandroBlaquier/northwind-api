@@ -2,11 +2,9 @@ import {
   Body,
   Controller,
   Get,
-  // HttpStatus,
   Param,
   ParseIntPipe,
   Post,
-  // Put,
 } from '@nestjs/common';
 import { CustomersService } from './customers.service';
 import { CustomerDTO } from './dto/customers.dto';
