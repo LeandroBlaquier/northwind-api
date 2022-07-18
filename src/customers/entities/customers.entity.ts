@@ -3,7 +3,7 @@ import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 @Entity()
 export class Customer {
   @PrimaryGeneratedColumn()
-  customerID: number;
+  id: number;
 
   @Column()
   companyName: string;
@@ -15,7 +15,7 @@ export class Customer {
   contactTitle: string;
 
   @Column()
-  cddress: string;
+  address: string;
 
   @Column()
   city: string;
@@ -30,7 +30,7 @@ export class Customer {
   country: string;
 
   @Column()
-  phone: string;
+  phone: number;
 
   @Column()
   fax: string;

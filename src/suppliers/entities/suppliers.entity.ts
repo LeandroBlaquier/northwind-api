@@ -2,7 +2,7 @@ import { Product } from 'src/products/entities/product.entity';
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
-export class suppliers {
+export class Suppliers {
   @PrimaryGeneratedColumn()
   id: number;
 
@@ -16,7 +16,7 @@ export class suppliers {
   contactTitle: string;
 
   @Column()
-  Address: number;
+  Address: string;
 
   @Column()
   city: string;
