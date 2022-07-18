@@ -4,10 +4,10 @@ import { CategoryDTO } from './dto/category.dto';
 
 @Controller('category')
 export class CategoryController {
-  constructor(private readonly CategoryService: CategoryService) {}
+  constructor(private readonly categoryService: CategoryService) {}
 
   @Post()
-  createProduct(@Body() CategoryDTO: CategoryDTO) {
-    this.CategoryService.insert(CategoryDTO);
+  createProduct(@Body() categoryDTO: CategoryDTO) {
+    this.categoryService.insert(categoryDTO);
   }
 }
