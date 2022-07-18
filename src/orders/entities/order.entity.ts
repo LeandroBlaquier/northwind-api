@@ -5,8 +5,9 @@ import {
   JoinColumn,
   OneToOne,
   PrimaryGeneratedColumn,
+  ManyToOne,
 } from 'typeorm';
-
+import { Customer } from 'src/customers/entities/customers.entity';
 @Entity()
 export class Order {
   @PrimaryGeneratedColumn() //los id se hacen de esta forma para que se autogeneren las id
@@ -54,4 +55,7 @@ export class Order {
   @OneToOne(() => Shipper)
   @JoinColumn()
   shipper: Shipper;
+
+  @ManyToOne(() => Customer, (customer) => customer.orders)
+  customer: Customer; //clientes
 }
