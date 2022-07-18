@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Customer } from 'src/customers/entities/customers.entity';
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
 export class Order {
@@ -43,4 +44,7 @@ export class Order {
 
   @Column({ type: 'int' })
   EmployeeID: number;
+
+  @ManyToOne(() => Customer, (customer) => customer.orders)
+  customer: Customer; //clientes
 }
