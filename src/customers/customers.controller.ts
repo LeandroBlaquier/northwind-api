@@ -1,7 +1,10 @@
 import {
   Body,
   Controller,
+  Delete,
   Get,
+  HttpCode,
+  HttpStatus,
   Param,
   ParseIntPipe,
   Post,
@@ -27,5 +30,11 @@ export class CustomersController {
   @Post()
   createProduct(@Body() customerDTO: CustomerDTO) {
     this.customerServices.insert(customerDTO);
+  }
+
+  @Delete(':id')
+  @HttpCode(HttpStatus.NO_CONTENT)
+  delete(@Param('id') id: number) {
+    this.customerServices.delete(id);
   }
 }

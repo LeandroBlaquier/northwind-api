@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { ShipperDTO } from './dto/shippers.dto';
@@ -26,5 +26,12 @@ export class ShippersService {
 
     await this.shippersRepository.save(shipper);
     return shipper;
+  }
+  async delete(id: number): Promise<Shipper> {
+    const shipper = await this.shippersRepository.findOne({ where: { id } });
+    if (shipper) {
+      return this.shippersRepository.remove(shipper);
+    }
+    throw new NotFoundException(`No se encuentra el producto ${id}`);
   }
 }

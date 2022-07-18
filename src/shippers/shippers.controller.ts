@@ -1,7 +1,10 @@
 import {
   Body,
   Controller,
+  Delete,
   Get,
+  HttpCode,
+  HttpStatus,
   Param,
   ParseIntPipe,
   Post,
@@ -27,5 +30,11 @@ export class ShippersController {
   @Post()
   createProduct(@Body() shipperDTO: ShipperDTO) {
     this.shippersServices.insert(shipperDTO);
+  }
+
+  @Delete(':id')
+  @HttpCode(HttpStatus.NO_CONTENT)
+  delete(@Param('id') id: number) {
+    this.shippersServices.delete(id);
   }
 }

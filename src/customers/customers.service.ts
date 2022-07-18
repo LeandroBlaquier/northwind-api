@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { CustomerDTO } from './dto/customers.dto';
@@ -26,5 +26,13 @@ export class CustomersService {
 
     await this.customerRepository.save(customer);
     return customer;
+  }
+
+  async delete(id: number): Promise<Customer> {
+    const customer = await this.customerRepository.findOne({ where: { id } });
+    if (customer) {
+      return this.customerRepository.remove(customer);
+    }
+    throw new NotFoundException(`No se encuentra el producto ${id}`);
   }
 }
